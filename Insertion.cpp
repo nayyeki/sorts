@@ -1,29 +1,28 @@
 #include <iostream>
-#include "sorts.h"
 using namespace std;
 
 void insertion_sort_asc(int* mass, int n) {
     for (int i = 1; i < n; i++) {
-        int key = mass[i];  // текущий элемент для вставки
+        int key = mass[i];  // ГІГҐГЄГіГ№ГЁГ© ГЅГ«ГҐГ¬ГҐГ­ГІ Г¤Г«Гї ГўГ±ГІГ ГўГЄГЁ
         int j = i - 1;
 
-        while (j >= 0 && mass[j] > key) {// Сдвигаем элементы больше key вправо
+        while (j >= 0 && mass[j] > key) {// Г‘Г¤ГўГЁГЈГ ГҐГ¬ ГЅГ«ГҐГ¬ГҐГ­ГІГ» ГЎГ®Г«ГјГёГҐ key ГўГЇГ°Г ГўГ®
             mass[j + 1] = mass[j];
             j--;
         }
-        mass[j + 1] = key;// Вставляем key на правильное место
+        mass[j + 1] = key;// Г‚Г±ГІГ ГўГ«ГїГҐГ¬ key Г­Г  ГЇГ°Г ГўГЁГ«ГјГ­Г®ГҐ Г¬ГҐГ±ГІГ®
     }
 }
 
 void insertion_sort_desc(int* mass, int n) {
     for (int i = 1; i < n; i++) {
-        int key = mass[i];  // текущий элемент для вставки
+        int key = mass[i];  // ГІГҐГЄГіГ№ГЁГ© ГЅГ«ГҐГ¬ГҐГ­ГІ Г¤Г«Гї ГўГ±ГІГ ГўГЄГЁ
         int j = i - 1;
 
-        while (j >= 0 && mass[j] < key) {// Сдвигаем элементы меньше key вправо
+        while (j >= 0 && mass[j] < key) {// Г‘Г¤ГўГЁГЈГ ГҐГ¬ ГЅГ«ГҐГ¬ГҐГ­ГІГ» Г¬ГҐГ­ГјГёГҐ key ГўГЇГ°Г ГўГ®
             mass[j + 1] = mass[j];
             j--;
         }
-        mass[j + 1] = key;// Вставляем key на правильное место
+        mass[j + 1] = key;// Г‚Г±ГІГ ГўГ«ГїГҐГ¬ key Г­Г  ГЇГ°Г ГўГЁГ«ГјГ­Г®ГҐ Г¬ГҐГ±ГІГ®
     }
 }
