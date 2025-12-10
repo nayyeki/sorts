@@ -1,18 +1,17 @@
 #include <iostream>
-#include "sorts.h"
 using namespace std;
 
 void selection_sort_asc(int* mass, int n) {
     for (int i = 0; i < n - 1; i++) {
         int min_index = i;
 
-        for (int j = i + 1; j < n; j++) {// Поиск минимального элемента
+        for (int j = i + 1; j < n; j++) {// ГЏГ®ГЁГ±ГЄ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
             if (mass[j] < mass[min_index]) {
                 min_index = j;
             }
         }
 
-        if (min_index != i) {// Обмен минимального элемента с текущим
+        if (min_index != i) {// ГЋГЎГ¬ГҐГ­ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ  Г± ГІГҐГЄГіГ№ГЁГ¬
             int temp = mass[i];
             mass[i] = mass[min_index];
             mass[min_index] = temp;
@@ -24,13 +23,13 @@ void selection_sort_desc(int* mass, int n) {
     for (int i = 0; i < n - 1; i++) {
         int max_index = i;
 
-        for (int j = i + 1; j < n; j++) {// Поиск максимального элемента
+        for (int j = i + 1; j < n; j++) {// ГЏГ®ГЁГ±ГЄ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
             if (mass[j] > mass[max_index]) {
                 max_index = j;
             }
         }
 
-        if (max_index != i) {// Обмен максимального элемента с текущим
+        if (max_index != i) {// ГЋГЎГ¬ГҐГ­ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ  Г± ГІГҐГЄГіГ№ГЁГ¬
             int temp = mass[i];
             mass[i] = mass[max_index];
             mass[max_index] = temp;
