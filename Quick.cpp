@@ -1,16 +1,15 @@
 #include <iostream>
-#include "sorts.h"
 using namespace std;
 
-void obmen(int& a, int& b) {// Обмен двух элементов
+void obmen(int& a, int& b) {// ГЋГЎГ¬ГҐГ­ Г¤ГўГіГµ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў
     int temp = a;
     a = b;
     b = temp;
 }
 
-int razvoz(int* mass, int low, int high) {// Разделение массива для сортировки по возрастанию 
-    int pivot = mass[high];// Опорный элемент - последний элемент массива
-    int i = low - 1;// Индекс, указывающий на позицию, где будут элементы меньше опорного
+int razvoz(int* mass, int low, int high) {// ГђГ Г§Г¤ГҐГ«ГҐГ­ГЁГҐ Г¬Г Г±Г±ГЁГўГ  Г¤Г«Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ ГЇГ® ГўГ®Г§Г°Г Г±ГІГ Г­ГЁГѕ 
+    int pivot = mass[high];// ГЋГЇГ®Г°Г­Г»Г© ГЅГ«ГҐГ¬ГҐГ­ГІ - ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ© ГЅГ«ГҐГ¬ГҐГ­ГІ Г¬Г Г±Г±ГЁГўГ 
+    int i = low - 1;// Г€Г­Г¤ГҐГЄГ±, ГіГЄГ Г§Г»ГўГ ГѕГ№ГЁГ© Г­Г  ГЇГ®Г§ГЁГ¶ГЁГѕ, ГЈГ¤ГҐ ГЎГіГ¤ГіГІ ГЅГ«ГҐГ¬ГҐГ­ГІГ» Г¬ГҐГ­ГјГёГҐ Г®ГЇГ®Г°Г­Г®ГЈГ®
 
     for (int j = low; j < high; j++) {
         if (mass[j] <= pivot) {
@@ -18,11 +17,11 @@ int razvoz(int* mass, int low, int high) {// Разделение массива для сортировки п
             obmen(mass[i], mass[j]);  
         }
     }
-    obmen(mass[i + 1], mass[high]);// Помещаем опорный элемент на правильную позицию
-    return i + 1;// Возвращаем индекс опорного элемента
+    obmen(mass[i + 1], mass[high]);// ГЏГ®Г¬ГҐГ№Г ГҐГ¬ Г®ГЇГ®Г°Г­Г»Г© ГЅГ«ГҐГ¬ГҐГ­ГІ Г­Г  ГЇГ°Г ГўГЁГ«ГјГ­ГіГѕ ГЇГ®Г§ГЁГ¶ГЁГѕ
+    return i + 1;// Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ ГЁГ­Г¤ГҐГЄГ± Г®ГЇГ®Г°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
 }
 
-int razyb(int* mass, int low, int high) {// Разделение массива для сортировки по убыванию
+int razyb(int* mass, int low, int high) {// ГђГ Г§Г¤ГҐГ«ГҐГ­ГЁГҐ Г¬Г Г±Г±ГЁГўГ  Г¤Г«Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ ГЇГ® ГіГЎГ»ГўГ Г­ГЁГѕ
     int pivot = mass[high];
     int i = low - 1;
 
@@ -36,15 +35,15 @@ int razyb(int* mass, int low, int high) {// Разделение массива для сортировки по
     return i + 1;
 }
 
-void quickSortAscRecursive(int* mass, int low, int high) {// Рекурсивная быстрая сортировка по возрастанию
-    if (low < high) {// если в подмассиве более одного элемента
-        int pivotIndex = razvoz(mass, low, high); // Разделяем массив и получаем индекс опорного элемента
-        quickSortAscRecursive(mass, low, pivotIndex - 1);// Рекурсивно сортируем левую часть 
-        quickSortAscRecursive(mass, pivotIndex + 1, high);// Рекурсивно сортируем правую часть 
+void quickSortAscRecursive(int* mass, int low, int high) {// ГђГҐГЄГіГ°Г±ГЁГўГ­Г Гї ГЎГ»Г±ГІГ°Г Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГ  ГЇГ® ГўГ®Г§Г°Г Г±ГІГ Г­ГЁГѕ
+    if (low < high) {// ГҐГ±Г«ГЁ Гў ГЇГ®Г¤Г¬Г Г±Г±ГЁГўГҐ ГЎГ®Г«ГҐГҐ Г®Г¤Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+        int pivotIndex = razvoz(mass, low, high); // ГђГ Г§Г¤ГҐГ«ГїГҐГ¬ Г¬Г Г±Г±ГЁГў ГЁ ГЇГ®Г«ГіГ·Г ГҐГ¬ ГЁГ­Г¤ГҐГЄГ± Г®ГЇГ®Г°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+        quickSortAscRecursive(mass, low, pivotIndex - 1);// ГђГҐГЄГіГ°Г±ГЁГўГ­Г® Г±Г®Г°ГІГЁГ°ГіГҐГ¬ Г«ГҐГўГіГѕ Г·Г Г±ГІГј 
+        quickSortAscRecursive(mass, pivotIndex + 1, high);// ГђГҐГЄГіГ°Г±ГЁГўГ­Г® Г±Г®Г°ГІГЁГ°ГіГҐГ¬ ГЇГ°Г ГўГіГѕ Г·Г Г±ГІГј 
     }
 }
 
-void quickSortDescRecursive(int* mass, int low, int high) {// Рекурсивная быстрая сортировка по убыванию
+void quickSortDescRecursive(int* mass, int low, int high) {// ГђГҐГЄГіГ°Г±ГЁГўГ­Г Гї ГЎГ»Г±ГІГ°Г Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГ  ГЇГ® ГіГЎГ»ГўГ Г­ГЁГѕ
     if (low < high) {
         int pivotIndex = razyb(mass, low, high);
         quickSortDescRecursive(mass, low, pivotIndex - 1);
@@ -52,7 +51,7 @@ void quickSortDescRecursive(int* mass, int low, int high) {// Рекурсивная быстра
     }
 }
 
-void quick_sort_asc(int* mass, int n) {// Основные функции для использования в программе
+void quick_sort_asc(int* mass, int n) {// ГЋГ±Г­Г®ГўГ­Г»ГҐ ГґГіГ­ГЄГ¶ГЁГЁ Г¤Г«Гї ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї Гў ГЇГ°Г®ГЈГ°Г Г¬Г¬ГҐ
     if (n <= 1) return;
     quickSortAscRecursive(mass, 0, n - 1);
 }
