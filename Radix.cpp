@@ -1,8 +1,7 @@
 #include <iostream>
-#include "sorts.h"
 using namespace std;
 
-int getMax(int* mass, int n) {// Находит максимальное число в массиве
+int getMax(int* mass, int n) {// ГЌГ ГµГ®Г¤ГЁГІ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г® Гў Г¬Г Г±Г±ГЁГўГҐ
     int max = mass[0];
     for (int i = 1; i < n; i++) {
         if (mass[i] > max) {
@@ -13,25 +12,25 @@ int getMax(int* mass, int n) {// Находит максимальное число в массиве
 }
 
 void radix_sort_asc(int* mass, int n) {
-    if (n <= 1) return;//проверка массива на пустоту
+    if (n <= 1) return;//ГЇГ°Г®ГўГҐГ°ГЄГ  Г¬Г Г±Г±ГЁГўГ  Г­Г  ГЇГіГ±ГІГ®ГІГі
 
-    int max = getMax(mass, n);//находим максимальное число
-    int* temp = new int[n]; //создаем временный массив
+    int max = getMax(mass, n);//Г­Г ГµГ®Г¤ГЁГ¬ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г®
+    int* temp = new int[n]; //Г±Г®Г§Г¤Г ГҐГ¬ ГўГ°ГҐГ¬ГҐГ­Г­Г»Г© Г¬Г Г±Г±ГЁГў
 
-    for (int exp = 1; max / exp > 0; exp *= 10) { // Сортируем по каждому разряду
+    for (int exp = 1; max / exp > 0; exp *= 10) { // Г‘Г®Г°ГІГЁГ°ГіГҐГ¬ ГЇГ® ГЄГ Г¦Г¤Г®Г¬Гі Г°Г Г§Г°ГїГ¤Гі
         int count[10] = { 0 };
 
-        for (int i = 0; i < n; i++) {// Считаем цифры
+        for (int i = 0; i < n; i++) {// Г‘Г·ГЁГІГ ГҐГ¬ Г¶ГЁГґГ°Г»
             count[(mass[i] / exp) % 10]++;
         }
-        for (int i = 1; i < 10; i++) {// Накопление счетчиков
+        for (int i = 1; i < 10; i++) {// ГЌГ ГЄГ®ГЇГ«ГҐГ­ГЁГҐ Г±Г·ГҐГІГ·ГЁГЄГ®Гў
             count[i] += count[i - 1];
         }
-        for (int i = n - 1; i >= 0; i--) {// Строим временный массив
+        for (int i = n - 1; i >= 0; i--) {// Г‘ГІГ°Г®ГЁГ¬ ГўГ°ГҐГ¬ГҐГ­Г­Г»Г© Г¬Г Г±Г±ГЁГў
             temp[count[(mass[i] / exp) % 10] - 1] = mass[i];
             count[(mass[i] / exp) % 10]--;
         }
-        for (int i = 0; i < n; i++) {// Копируем обратно
+        for (int i = 0; i < n; i++) {// ГЉГ®ГЇГЁГ°ГіГҐГ¬ Г®ГЎГ°Г ГІГ­Г®
             mass[i] = temp[i];
         }
     }
@@ -39,25 +38,25 @@ void radix_sort_asc(int* mass, int n) {
 }
 
 void radix_sort_desc(int* mass, int n) {
-    if (n <= 1) return;//проверка массива на пустоту
+    if (n <= 1) return;//ГЇГ°Г®ГўГҐГ°ГЄГ  Г¬Г Г±Г±ГЁГўГ  Г­Г  ГЇГіГ±ГІГ®ГІГі
 
-    int max = getMax(mass, n);//находим максимальное число
-    int* temp = new int[n];//создаем временный массив
+    int max = getMax(mass, n);//Г­Г ГµГ®Г¤ГЁГ¬ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г®
+    int* temp = new int[n];//Г±Г®Г§Г¤Г ГҐГ¬ ГўГ°ГҐГ¬ГҐГ­Г­Г»Г© Г¬Г Г±Г±ГЁГў
 
     for (int exp = 1; max / exp > 0; exp *= 10) {
         int count[10] = { 0 };
 
-        for (int i = 0; i < n; i++) {// Считаем цифры
+        for (int i = 0; i < n; i++) {// Г‘Г·ГЁГІГ ГҐГ¬ Г¶ГЁГґГ°Г»
             count[(mass[i] / exp) % 10]++;
         }
-        for (int i = 8; i >= 0; i--) {// Накопление в обратном порядке для убывания
+        for (int i = 8; i >= 0; i--) {// ГЌГ ГЄГ®ГЇГ«ГҐГ­ГЁГҐ Гў Г®ГЎГ°Г ГІГ­Г®Г¬ ГЇГ®Г°ГїГ¤ГЄГҐ Г¤Г«Гї ГіГЎГ»ГўГ Г­ГЁГї
             count[i] += count[i + 1];
         }
-        for (int i = n - 1; i >= 0; i--) {// Строим временный массив
+        for (int i = n - 1; i >= 0; i--) {// Г‘ГІГ°Г®ГЁГ¬ ГўГ°ГҐГ¬ГҐГ­Г­Г»Г© Г¬Г Г±Г±ГЁГў
             temp[count[(mass[i] / exp) % 10] - 1] = mass[i];
             count[(mass[i] / exp) % 10]--;
         }
-        for (int i = 0; i < n; i++) {// Копируем обратно
+        for (int i = 0; i < n; i++) {// ГЉГ®ГЇГЁГ°ГіГҐГ¬ Г®ГЎГ°Г ГІГ­Г®
             mass[i] = temp[i];
         }
     }
