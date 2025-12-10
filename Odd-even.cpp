@@ -1,13 +1,12 @@
 #include <iostream>
-#include "sorts.h"
 using namespace std;
 
 void odd_even_sort_asc(int* mass, int n) {
-    bool sorted = false;//флаг для проверки
+    bool sorted = false;//ГґГ«Г ГЈ Г¤Г«Гї ГЇГ°Г®ГўГҐГ°ГЄГЁ
 
     while (!sorted) {
         sorted = true;
-        for (int i = 1; i < n - 1; i += 2) { //нечетный проход
+        for (int i = 1; i < n - 1; i += 2) { //Г­ГҐГ·ГҐГІГ­Г»Г© ГЇГ°Г®ГµГ®Г¤
             if (mass[i] > mass[i + 1]) {
                 int temp = mass[i];
                 mass[i] = mass[i + 1];
@@ -15,7 +14,7 @@ void odd_even_sort_asc(int* mass, int n) {
                 sorted = false;
             }
         }
-        for (int i = 0; i < n - 1; i += 2) { //четный проход
+        for (int i = 0; i < n - 1; i += 2) { //Г·ГҐГІГ­Г»Г© ГЇГ°Г®ГµГ®Г¤
             if (mass[i] > mass[i + 1]) {
                 int temp = mass[i];
                 mass[i] = mass[i + 1];
@@ -27,11 +26,11 @@ void odd_even_sort_asc(int* mass, int n) {
 }
 
 void odd_even_sort_desc(int* mass, int n) {
-    bool sorted = false;//флаг для проверки
+    bool sorted = false;//ГґГ«Г ГЈ Г¤Г«Гї ГЇГ°Г®ГўГҐГ°ГЄГЁ
 
     while (!sorted) {
         sorted = true;
-        for (int i = 1; i < n - 1; i += 2) {//нечетный проход
+        for (int i = 1; i < n - 1; i += 2) {//Г­ГҐГ·ГҐГІГ­Г»Г© ГЇГ°Г®ГµГ®Г¤
             if (mass[i] < mass[i + 1]) {
                 int temp = mass[i];
                 mass[i] = mass[i + 1];
@@ -39,7 +38,7 @@ void odd_even_sort_desc(int* mass, int n) {
                 sorted = false;
             }
         }
-        for (int i = 0; i < n - 1; i += 2) {//четный проход
+        for (int i = 0; i < n - 1; i += 2) {//Г·ГҐГІГ­Г»Г© ГЇГ°Г®ГµГ®Г¤
             if (mass[i] < mass[i + 1]) {
                 int temp = mass[i];
                 mass[i] = mass[i + 1];
