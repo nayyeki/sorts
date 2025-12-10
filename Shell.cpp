@@ -1,5 +1,4 @@
 #include <iostream>
-#include "sorts.h"
 using namespace std;
 
 void shell_sort_asc(int* mass, int n) {
@@ -8,16 +7,16 @@ void shell_sort_asc(int* mass, int n) {
         gap = gap * 3 + 1;  // 1, 4, 13, 40, 121, ...
     }
     while (gap > 0) {
-        for (int i = gap; i < n; i++) { // Ñîğòèğîâêà âñòàâêàìè ñ øàãîì gap
+        for (int i = gap; i < n; i++) { // Ã‘Ã®Ã°Ã²Ã¨Ã°Ã®Ã¢ÃªÃ  Ã¢Ã±Ã²Ã Ã¢ÃªÃ Ã¬Ã¨ Ã± Ã¸Ã Ã£Ã®Ã¬ gap
             int temp = mass[i];
             int j = i;
-            while (j >= gap && mass[j - gap] > temp) {// Ñäâèãàåì ıëåìåíòû, ïîêà íå íàéäåì ïğàâèëüíîå ìåñòî
+            while (j >= gap && mass[j - gap] > temp) {// Ã‘Ã¤Ã¢Ã¨Ã£Ã Ã¥Ã¬ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã», Ã¯Ã®ÃªÃ  Ã­Ã¥ Ã­Ã Ã©Ã¤Ã¥Ã¬ Ã¯Ã°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã®Ã¥ Ã¬Ã¥Ã±Ã²Ã®
                 mass[j] = mass[j - gap];
                 j -= gap;
             }
             mass[j] = temp;
         }
-        gap = (gap - 1) / 3;// Óìåíüøàåì øàã
+        gap = (gap - 1) / 3;// Ã“Ã¬Ã¥Ã­Ã¼Ã¸Ã Ã¥Ã¬ Ã¸Ã Ã£
     }
 }
 
@@ -28,15 +27,15 @@ void shell_sort_desc(int* mass, int n) {
     }
 
     while (gap > 0) {
-        for (int i = gap; i < n; i++) {// Ñîğòèğîâêà âñòàâêàìè ñ øàãîì gap
+        for (int i = gap; i < n; i++) {// Ã‘Ã®Ã°Ã²Ã¨Ã°Ã®Ã¢ÃªÃ  Ã¢Ã±Ã²Ã Ã¢ÃªÃ Ã¬Ã¨ Ã± Ã¸Ã Ã£Ã®Ã¬ gap
             int temp = mass[i];
             int j = i;
-            while (j >= gap && mass[j - gap] < temp) {// Ñäâèãàåì ıëåìåíòû, ïîêà íå íàéäåì ïğàâèëüíîå ìåñòî
+            while (j >= gap && mass[j - gap] < temp) {// Ã‘Ã¤Ã¢Ã¨Ã£Ã Ã¥Ã¬ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã», Ã¯Ã®ÃªÃ  Ã­Ã¥ Ã­Ã Ã©Ã¤Ã¥Ã¬ Ã¯Ã°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã®Ã¥ Ã¬Ã¥Ã±Ã²Ã®
                 mass[j] = mass[j - gap];
                 j -= gap;
             }
             mass[j] = temp;
         }
-        gap = (gap - 1) / 3;// Óìåíüøàåì øàã
+        gap = (gap - 1) / 3;// Ã“Ã¬Ã¥Ã­Ã¼Ã¸Ã Ã¥Ã¬ Ã¸Ã Ã£
     }
 }
